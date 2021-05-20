@@ -59,7 +59,8 @@ def mfdfa(close, scmax, m):
 
     complexity = [alpha0, R, W]
     complexity = [round(i,4) for i in complexity]
-    #plt.plot(np.log2(scale), np.log2(Fq))
-    #plt.plot(hq,Dq)
-    #plt.show()
     return complexity
+
+#plt.plot(np.log2(scale), np.log2(Fq))
+#plt.plot(hq,Dq)
+#plt.show()
