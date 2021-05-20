@@ -17,11 +17,6 @@ def mfdfa(close, scmax, m):
     q = np.linspace(-5, 5, num=101)
     q = [round(x,1) for x in q]
 
-    #df = pd.read_csv('C:/Users/sahin/OneDrive/mxcbinance/BTCUSDT-1d-data.csv')
-    #print(df['close'])
-
-    #close = np.array(df['close'])
-    #close = close.to_numeric()
     close = np.array(close)
     X = np.cumsum(close-close.mean())
     segments = []
