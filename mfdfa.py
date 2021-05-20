@@ -17,7 +17,6 @@ def mfdfa(close, scmax, m):
     q = np.linspace(-5, 5, num=101)
     q = [round(x,1) for x in q]
 
-
     close = np.array(close)
     X = np.cumsum(close-close.mean())
     segments = []
