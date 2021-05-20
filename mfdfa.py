@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-
+#import matplotlib.pyplot as plt
 
 def convertprice(price):
     return format(float(price), '.10f')
+
 def mfdfa(close, scmax, m):
     #scmax = 250
     #m = 1
@@ -21,7 +21,7 @@ def mfdfa(close, scmax, m):
     close = np.array(close)
     X = np.cumsum(close-close.mean())
     segments = []
-    RMS_scale = [[] for _ in range(len(scale))] #np.array([], dtype=object)
+    RMS_scale = [[] for _ in range(len(scale))] 
     qRMS = [[[] for _ in range(len(scale))] for _ in range(len(q))]
     Fq = [[[] for _ in range(len(scale))] for _ in range(len(q))]
 
@@ -31,7 +31,7 @@ def mfdfa(close, scmax, m):
             Index = range(v*scale[ns],(v+1)*scale[ns])
             C = np.polyfit(Index,X[Index],m)
             fit = np.polyval(C,Index)
-            RMS_scale[ns].append(np.sqrt(np.square(X[Index]-fit).mean())) #[ns][v]
+            RMS_scale[ns].append(np.sqrt(np.square(X[Index]-fit).mean())) 
         for nq in range(0,len(q)):
             qRMS[nq][ns] = np.power(RMS_scale[ns],q[nq])
             if q[nq]==0:
