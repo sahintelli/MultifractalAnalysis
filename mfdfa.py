@@ -52,6 +52,10 @@ def mfdfa(close, scmax, m):
     hq = np.diff(tq)/(q[1]-q[0])
     Dq = np.array([val1*val2 for val1,val2 in zip(q[0:len(q)-1],hq)])-tq[0:len(tq)-1]
 
+    complexity = complexityparameters(Dq, hq)
+    return complexity
+
+def complexityparameters(Dq, hq):
     I = np.argmax(Dq)-1
     alpha0 = hq[I]
     R = (np.max(hq)-alpha0)/(alpha0-np.min(hq))
